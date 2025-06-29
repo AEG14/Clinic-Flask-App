@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Confirmed</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='site.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container confirmation">
+      <div class="success-icon">✓</div>
+      <h2>Registration Successful!</h2>
+
+      <div class="info-card"><strong>First Name:</strong> {{ first_name }}</div>
+
+      <div class="info-card"><strong>Last Name:</strong> {{ last_name }}</div>
+
+      <div class="info-card"><strong>Date of Birth:</strong> {{ dob }}</div>
+
+      <div class="info-card"><strong>Therapist:</strong> {{ therapist }}</div>
+
+      <p style="margin-top: 30px; color: #666; font-size: 14px">
+        Patient information has been successfully recorded.
+      </p>
+    </div>
+  </body>
+</html>

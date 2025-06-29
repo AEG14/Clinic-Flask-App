@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Registration</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='site.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Patient Registration</h2>
+
+      {% if error %}
+      <div class="error">{{ error }}</div>
+      {% endif %}
+
+      <form action="{{ url_for('submit') }}" method="post" id="patientForm">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            value="{{ first_name or '' }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            value="{{ last_name or '' }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            value="{{ dob or '' }}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="therapist">Therapist Name</label>
+          <input
+            type="text"
+            id="therapist"
+            name="therapist"
+            value="{{ therapist or '' }}"
+            required
+          />
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Submit Registration
+        </button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("patientForm")
+        .addEventListener("submit", function () {
+          const btn = document.getElementById("submitBtn");
+          btn.classList.add("loading");
+          btn.disabled = true;
+        });
+    </script>
+  </body>
+</html>
